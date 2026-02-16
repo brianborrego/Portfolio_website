@@ -1,0 +1,85 @@
+.hero {
+  position: relative;
+  display: flex;
+  height: 100vh;
+  width: 100%;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background-color: #000000;
+}
+
+.canvas {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background-color: #000000;
+}
+
+.fade {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 280px;
+  background: linear-gradient(to bottom, transparent 0%, #000000 100%);
+  z-index: 5;
+  pointer-events: none;
+}
+
+.menu {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.menuList {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.menuItem {
+  cursor: pointer;
+  line-height: 0.85;
+}
+
+.menuLink {
+  text-decoration: none;
+  color: inherit;
+}
+
+.menuText {
+  font-family: "Inter", sans-serif;
+  font-optical-sizing: auto;
+  font-size: clamp(2.5rem, 6vw, 5rem);
+  font-weight: 700;
+  font-style: normal;
+  text-transform: uppercase;
+  color: #ffffff;
+  letter-spacing: -0.03em;
+  transition: color 0.3s ease, opacity 0.3s ease;
+  line-height: 0.85;
+}
+
+.menuLink:hover .menuText {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+@media (max-width: 768px) {
+  .menuText {
+    font-size: clamp(1.75rem, 10vw, 3rem);
+  }
+
+  .menuList {
+    gap: 0.05rem;
+  }
+}

@@ -1,0 +1,54 @@
+.section {
+  position: relative;
+  z-index: 10;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 100px 150px;
+  background-color: #000000;
+}
+
+.container {
+  max-width: 900px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.title {
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 700;
+  margin: 0 0 3rem 0;
+  color: #ffffff;
+  letter-spacing: -0.01em;
+}
+
+.content {
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 1rem;
+  line-height: 1.8;
+  font-weight: 700;
+}
+
+.content p {
+  margin: 0 0 1.5rem 0;
+}
+
+.content p:last-child {
+  margin-bottom: 0;
+}
+
+@media (max-width: 768px) {
+  .section {
+    padding: 80px 24px;
+  }
+
+  .title {
+    font-size: clamp(1.75rem, 8vw, 2.5rem);
+    margin-bottom: 2rem;
+  }
+
+  .content {
+    font-size: 0.95rem;
+  }
+}

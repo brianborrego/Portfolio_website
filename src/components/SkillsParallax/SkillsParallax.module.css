@@ -1,0 +1,76 @@
+.container {
+  width: 100%;
+  padding: 2rem 0;
+  min-height: 600px;
+  position: relative;
+}
+
+.columnsWrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  will-change: transform;
+}
+
+/* Offset the right column to create staggered effect */
+.column:last-child {
+  margin-top: 1.5rem;
+}
+
+.iconWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  transition: all 0.3s ease;
+}
+
+[data-theme="light"] .iconWrapper {
+  background: rgba(0, 0, 0, 0.02);
+  border-color: rgba(0, 0, 0, 0.06);
+}
+
+.iconWrapper:hover {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(255, 255, 255, 0.15);
+  transform: scale(1.05);
+}
+
+[data-theme="light"] .iconWrapper:hover {
+  background: rgba(0, 0, 0, 0.04);
+  border-color: rgba(0, 0, 0, 0.12);
+}
+
+.icon {
+  width: 100%;
+  max-width: 60px;
+  height: auto;
+  object-fit: contain;
+  display: block;
+}
+
+@media (max-width: 480px) {
+  .columnsWrapper {
+    gap: 1.5rem;
+  }
+
+  .column {
+    gap: 2.5rem;
+  }
+
+  .icon {
+    max-width: 50px;
+  }
+}
