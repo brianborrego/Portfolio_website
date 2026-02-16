@@ -52,7 +52,6 @@ lerna-debug.log*
 .yarn/
 .yarn-integrity
 yarn.lock
-package-lock.json
 pnpm-lock.yaml
 
 # Vite
