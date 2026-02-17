@@ -36,10 +36,10 @@
 
 .title {
   font-family: "Space Grotesk", sans-serif;
-  font-size: clamp(2rem, 5vw, 3rem);
-  font-weight: 700;
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 300;
   text-transform: uppercase;
-  letter-spacing: 0.05em;
+  letter-spacing: -0.03em;
   margin: 0 0 1.5rem 0;
   color: #ffffff;
 }
@@ -185,15 +185,40 @@
 
 @media (max-width: 768px) {
   .section {
-    padding: 80px 24px;
+    padding: 0 24px 28px;
+    justify-content: flex-end;
+  }
+
+  .container {
+    gap: 16px;
+    padding-top: 160px;
   }
 
   .title {
-    font-size: clamp(1.75rem, 8vw, 2.5rem);
-    margin-bottom: 1rem;
+    font-size: clamp(2.25rem, 11vw, 3.5rem);
+    margin-bottom: 0.25rem;
+  }
+
+  .intro {
+    font-size: 0.85rem;
+    margin-bottom: 0.6rem;
+    line-height: 1.4;
+  }
+
+  .menuSide {
+    margin-top: 1.25rem;
   }
 
   .menuText {
-    font-size: clamp(1.5rem, 8vw, 2.25rem);
+    font-size: clamp(1.25rem, 6vw, 1.75rem);
+  }
+
+  .menuList {
+    gap: 0.1rem;
+  }
+
+  .copyright {
+    bottom: 10px;
+    font-size: 0.6rem;
   }
 }

@@ -10,6 +10,27 @@ export default function About() {
   const [debug, setDebug] = useState({});
   const scrollCountRef = useRef(0);
 
+  // Scroll-then-stick: on screens where the About content exceeds the viewport
+  // height, shift the sticky anchor up so the section scrolls to reveal its
+  // bottom before locking in place. Experience still slides over as before.
+  useEffect(() => {
+    const section = ref.current;
+    if (!section) return;
+
+    const update = () => {
+      if (window.innerWidth <= 900) {
+        section.style.top = '';
+        return;
+      }
+      const overflow = section.offsetHeight - window.innerHeight;
+      section.style.top = overflow > 0 ? `-${overflow}px` : '';
+    };
+
+    update();
+    window.addEventListener('resize', update);
+    return () => window.removeEventListener('resize', update);
+  }, []);
+
   useEffect(() => {
     const path = svgPathRef.current;
     const section = ref.current;

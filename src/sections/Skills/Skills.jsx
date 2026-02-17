@@ -38,10 +38,13 @@ export default function Skills() {
   const isInView = useInView(ref, { once: true, amount: 0.25 });
   const [isLight, setIsLight] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
+  const isMobileRef = useRef(false);
 
   useEffect(() => {
     const checkMobile = () => {
-      setIsMobile(window.innerWidth <= 768);
+      const mobile = window.innerWidth <= 768;
+      setIsMobile(mobile);
+      isMobileRef.current = mobile;
     };
 
     checkMobile();
@@ -57,7 +60,11 @@ export default function Skills() {
   // Fades to off-white as section enters fully.
   // Only fades back when scrolling UP (progress decreasing below 0.2).
   // Does NOT fade out when scrolling down into Projects — stays light.
-  const lightProgress = useTransform(scrollYProgress, [0.2, 0.45], [0, 1], { clamp: true });
+  // On mobile, the range is tighter so the fade completes faster.
+  const lightProgress = useTransform(scrollYProgress, (v) => {
+    const [start, end] = isMobileRef.current ? [0.2, 0.3] : [0.2, 0.45];
+    return Math.min(Math.max((v - start) / (end - start), 0), 1);
+  });
 
   useMotionValueEvent(lightProgress, 'change', (v) => {
     setIsLight(v > 0.5);

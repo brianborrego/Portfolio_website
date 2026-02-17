@@ -20,7 +20,7 @@
   font-size: clamp(3rem, 7vw, 5rem);
   font-weight: 300;
   text-transform: uppercase;
-  letter-spacing: 0.05em;
+  letter-spacing: -0.03em;
   margin: 0 0 4rem 0;
   text-align: center;
   /* color animated by Framer Motion */
